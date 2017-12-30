@@ -28,6 +28,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 		$data['status']='please re-confirm password';
 	}
 
+	elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
+		$data['status']='please use a valid email';
+	}
+
 	else if ($check== true){
 		 	$data['status']='This email has already been used'; 
 	}
